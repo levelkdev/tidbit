@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.24;
 
 import "./PushOracleBase.sol";
 import "../Oracles/BasicOracle.sol";
@@ -17,7 +17,7 @@ contract BasicPushOracle is Initializable, BasicOracle, PushOracleBase {
    * the result has been set.
    */
   function initialize (
-    address payable _dataSource,
+    address  _dataSource,
     IOracleConsumer _consumer
   )
     public

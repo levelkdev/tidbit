@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.24;
 
 import "./DataFeedOracleBase.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
@@ -14,7 +14,7 @@ contract DataFeedOracle is Initializable, DataFeedOracleBase {
    * @param _dataFeedSources Valid datafeeds to update price.
    * @param _dataSource The address that is able to set the result
    */
-  function initialize(address[] memory _dataFeedSources, address payable _dataSource) public initializer {
+  function initialize(address[] memory _dataFeedSources, address  _dataSource) public initializer {
      require(_dataFeedSources.length > 0, "Cannot initialize DataFeedOracle without empty data feeds");
      for (uint i = 0; i < _dataFeedSources.length; i++) {
        dataSources[_dataFeedSources[i]] = true;
@@ -27,7 +27,7 @@ contract DataFeedOracle is Initializable, DataFeedOracleBase {
    * The assumption here is that the dataFeeds initialized here are already sorted.
    * It could be achieved cheaper off-chain than on-chain.
   */
-  function setResult(DataFeedOracleBase[] calldata _dataFeeds) external {
+  function setResult(DataFeedOracleBase[] memory _dataFeeds) public {
 
     for (uint i = 0; i < _dataFeeds.length; i++) {
 

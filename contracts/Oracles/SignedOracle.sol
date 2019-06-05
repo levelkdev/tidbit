@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.24;
 
 import "./BasicOracle.sol";
 import "openzeppelin-solidity/contracts/cryptography/ECDSA.sol";
@@ -17,7 +17,7 @@ contract SignedOracle is Initializable, BasicOracle {
    * @param _dataSource The address that is able to set the result
    */
   function initialize(
-    address payable _dataSource
+    address  _dataSource
   )
     public
     initializer
