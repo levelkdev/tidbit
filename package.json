@@ -15,7 +15,7 @@
   "dependencies": {
     "bn-chai": "^1.0.1",
     "moment": "^2.22.0",
-    "openzeppelin-solidity": "^2.1.2",
+    "openzeppelin-solidity": "2.0.0",
     "solc": "^0.4.24",
     "truffle-blockchain-utils": "^0.0.3",
     "truffle-hdwallet-provider": "^0.0.3",
@@ -52,6 +52,7 @@
     "test:truffle": "truffle test",
     "test:coverage": "npm run build && npm run solidity-coverage",
     "ganache-cli": "scripts/runGanacheCLI.sh",
-    "lint": "standard --verbose | snazzy"
+    "lint": "standard --verbose | snazzy",
+    "tv": "truffle version"
   }
 }
