@@ -1,7 +1,7 @@
 pragma solidity ^0.4.24;
 
 import "./IDataFeedOracle.sol";
-import "zos-lib/contracts/Initializable.sol";
+import "../Initializer.sol";
 
 /**
  * @title DataFeedOracleBase
@@ -11,7 +11,7 @@ import "zos-lib/contracts/Initializable.sol";
  * There is only one date, index and result per data feed.
  */
 
-contract DataFeedOracleBase is Initializable, IDataFeedOracle {
+contract DataFeedOracleBase is Initializer, IDataFeedOracle {
 
   uint256[] dates; // defaults should be all 0
   mapping(uint256 => bytes32) results;

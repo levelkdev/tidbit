@@ -2,9 +2,9 @@ pragma solidity ^0.4.24;
 
 import "./DataFeedOracleBase.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
-import "zos-lib/contracts/Initializable.sol";
+import "../Initializer.sol";
 
-contract MedianDataFeedOracle is Initializable, DataFeedOracleBase {
+contract DataFeedOracle is Initializer, DataFeedOracleBase {
 
   mapping(address => bool) dataSources;
   uint256 lastUpdated;
