@@ -15,7 +15,7 @@ contract DataFeedOracle is Initializer, DataFeedOracleBase {
    * @param _dataSource The address that is able to set the result
    */
   function initialize(address[] memory _dataFeedSources, address  _dataSource) public initializer {
-     require(_dataFeedSources.length > 0, "Cannot initialize DataFeedOracle without empty data feeds");
+     require(_dataFeedSources.length > 0, "Cannot initialize DataFeedOracle without data feeds");
      for (uint i = 0; i < _dataFeedSources.length; i++) {
        dataSources[_dataFeedSources[i]] = true;
      }
@@ -54,6 +54,14 @@ contract DataFeedOracle is Initializer, DataFeedOracleBase {
     uint256 now = uint256(block.timestamp);
     super.setResult(medianValue, now);
     lastUpdated = now;
+  }
+
+  function addDataFeed(DataFeedOracleBase dataFeed) onlyDataSource(msg.sender) public {
+    dataSources[dataFeed] = true;
+  }
+
+  function removeDataFeed(DataFeedOracleBase dataFeed) onlyDataSource(msg.sender) public {
+    dataSources[dataFeed] = false;
   }
 
 }
