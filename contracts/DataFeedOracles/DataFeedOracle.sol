@@ -7,7 +7,6 @@ import "../Initializer.sol";
 contract DataFeedOracle is Initializer, DataFeedOracleBase {
 
   mapping(address => bool) dataSources;
-  uint256 lastUpdated;
 
   /**
    * @dev DataFeedOracle constructor
@@ -21,6 +20,7 @@ contract DataFeedOracle is Initializer, DataFeedOracleBase {
      }
      DataFeedOracleBase.initialize(_dataSource);
   }
+
   /**
    * @dev setResult with sorted dataFeeds
    * @param _dataFeeds Valid datafeeds to update price.
@@ -35,7 +35,9 @@ contract DataFeedOracle is Initializer, DataFeedOracleBase {
 
        uint256 date;
        uint256 index;
+       uint256 lastUpdated;
        (date, index) = _dataFeeds[i].lastUpdated();
+       (lastUpdated,) = this.lastUpdated();
        require(date > lastUpdated, "Stale data.");
 
        if(i != _dataFeeds.length - 1) {
