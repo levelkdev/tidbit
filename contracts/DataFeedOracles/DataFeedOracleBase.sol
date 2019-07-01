@@ -95,7 +95,6 @@ contract DataFeedOracleBase is Initializer, IDataFeedOracle {
    * @dev Return the block timestamp that the data feed last updated
    */
   function lastUpdated() public view returns (uint256 date, uint256 index) {
-    require(dates.length > 1, "There is no data getting set yet.");
     return (dates[dates.length - 1], dates.length - 1);
   }
 

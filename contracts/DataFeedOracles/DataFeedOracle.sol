@@ -6,7 +6,7 @@ import "../Initializer.sol";
 
 contract DataFeedOracle is Initializer, DataFeedOracleBase {
 
-  mapping(address => bool) dataSources;
+  mapping(address => bool) public dataSources;
 
   /**
    * @dev DataFeedOracle constructor
