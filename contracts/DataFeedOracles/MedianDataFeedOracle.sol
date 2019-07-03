@@ -4,7 +4,7 @@ import "./DataFeedOracleBase.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "../Initializer.sol";
 
-contract DataFeedOracle is Initializer, DataFeedOracleBase {
+contract MedianDataFeedOracle is Initializer, DataFeedOracleBase {
 
   mapping(address => bool) public dataSources;
 
@@ -14,7 +14,7 @@ contract DataFeedOracle is Initializer, DataFeedOracleBase {
    * @param _dataSource The address that is able to set the result
    */
   function initialize(address[] memory _dataFeedSources, address  _dataSource) public initializer {
-     require(_dataFeedSources.length > 0, "Cannot initialize DataFeedOracle without data feeds");
+     require(_dataFeedSources.length > 0, "Cannot initialize MedianDataFeedOracle without data feeds");
      for (uint i = 0; i < _dataFeedSources.length; i++) {
        dataSources[_dataFeedSources[i]] = true;
      }

@@ -14,8 +14,8 @@ import "../Initializer.sol";
 contract DataFeedOracleBase is Initializer, IDataFeedOracle {
 
   uint256[] dates; // defaults should be all 0
-  mapping(uint256 => bytes32) results;
-  mapping(uint256 => uint256) indexes;
+  mapping(uint256 => bytes32) results; // date --> result
+  mapping(uint256 => uint256) indexes; // date --> index
   address public dataSource;
 
   event ResultSet(bytes32 _result, uint256 _date, uint256 _index, address _sender);
