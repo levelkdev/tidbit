@@ -76,7 +76,6 @@ contract('initialize DataFeedOracleBase', (accounts) => {
 
     await shouldFail(oracle.resultByIndexFor(ORACLE_INDEX_1))
     await shouldFail(oracle.resultByDateFor(ORACLE_INDEX_5_DATE))
-    await shouldFail(oracle.lastUpdated())
     await shouldFail(oracle.lastUpdatedData())
   })
 

@@ -23,7 +23,5 @@ contract('initialize DataFeedOracleBase', (accounts) => {
     isResultSetFor.should.equal(false)
     const doesIndexExistFor = await oracle.doesIndexExistFor(ORACLE_INDEX_1)
     doesIndexExistFor.should.equal(false)
-
-    await shouldFail(oracle.lastUpdated())
   })
 })

@@ -31,7 +31,6 @@ contract('initialize MedianDataFeedOracle', (accounts) => {
     let dataFeedOracle = await MedianDataFeedOracle.new()
     await dataFeedOracle.initialize(dataSources, dataFeedOracleDataSource)
     // There is no median value returned if the results hasn't been set yet.
-    await shouldFail(dataFeedOracle.lastUpdated())
     await shouldFail(dataFeedOracle.lastUpdatedData())
   })
 
